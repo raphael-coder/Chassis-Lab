@@ -2,10 +2,11 @@ package org.example;
 
 public class VehicleFrame implements Chassis {
 
-    String vehicleFrameType;
+    private String vehicleFrameType;
 
     public VehicleFrame() {
-        vehicleFrameType = "Unibody";
+        this.vehicleFrameType = "Unibody";
+
     }
 
     public VehicleFrame(String vehicleFrameType) {
@@ -13,12 +14,20 @@ public class VehicleFrame implements Chassis {
     }
 
     @Override
-    public String getChassisType() {
-        return this.getClass().toString();
+    public VehicleFrame getChassisType() {
+        return this;
     }
 
     @Override
     public void setChassisType(String vehicleFrameType) {
+        this.vehicleFrameType = vehicleFrameType;
+    }
 
+    @Override
+    public String toString() {
+        return "VehicleFrame{" + "\n" +
+                "Chassis :'" + chassis + '\'' + "\n" +
+                "Vehicle Frame :'" + vehicleFrameType + '\'' + "\n" +
+                '}';
     }
 }
