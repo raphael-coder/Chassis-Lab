@@ -15,7 +15,7 @@ public class VehicleFrame implements Chassis {
 
     @Override
     public VehicleFrame getChassisType() {
-        return this;
+        return new VehicleFrame(this.vehicleFrameType);
     }
 
     @Override
@@ -25,9 +25,15 @@ public class VehicleFrame implements Chassis {
 
     @Override
     public String toString() {
-        return "VehicleFrame{" + "\n" +
-                "Chassis :'" + chassis + '\'' + "\n" +
-                "Vehicle Frame :'" + vehicleFrameType + '\'' + "\n" +
-                '}';
+        return "Chassis : " + this.getClass().getSimpleName() + "\n" + "Vehicle Frame : " + vehicleFrameType;
+    }
+
+    public static void main(String[] args) {
+        VehicleFrame defaultFrame = new VehicleFrame();
+        System.out.println(defaultFrame);
+
+        VehicleFrame customFrame = new VehicleFrame("Sport");
+        System.out.println(customFrame);
     }
 }
+

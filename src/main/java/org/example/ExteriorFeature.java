@@ -23,8 +23,12 @@ public class ExteriorFeature implements Feature {
 
     @Override
     public String toString() {
-        return "ExteriorFeature{" +
-                "Exterior :'" + exteriorFeature + '\'' +
-                '}';
+        return "Exterior [" + this.exteriorFeature + "]";
+
+    }
+
+    public static void main(String[] args) {
+        ExteriorFeature exteriorFeature = new ExteriorFeature();
+        System.out.println(exteriorFeature);
     }
 }

@@ -24,8 +24,14 @@ public class InteriorFeature implements Feature {
 
     @Override
     public String toString() {
-        return "InteriorFeature{" +
-                "Interior :'" + interiorFeature + '\'' +
-                '}';
+        return "Interior [" + interiorFeature + "]";
+    }
+
+    public static void main(String[] args) {
+        InteriorFeature feature1 = new InteriorFeature();
+        System.out.println(feature1.toString());
+
+        InteriorFeature feature2 = new InteriorFeature("Leather Seats");
+        System.out.println(feature2.toString());
     }
 }

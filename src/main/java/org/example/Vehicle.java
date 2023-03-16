@@ -1,9 +1,8 @@
 package org.example;
 
-import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class ManufacturedEngine implements Engine {
+public class Vehicle implements Engine {
 
     private String engineManufacturer;
 
@@ -13,32 +12,27 @@ public class ManufacturedEngine implements Engine {
 
     private String engineModel;
 
-    private String engineDriveTrain;
-
     private int engineCylinders;
 
     private String engineType;
 
     private String driveTrain;
 
-    private SimpleDateFormat isoFormat = new SimpleDateFormat();
-    public ManufacturedEngine() {
+    public Vehicle() {
         this.engineManufacturer = "Generic";
-        this.engineManufacturedDate = new Date(2012, 2,2,0,55,44);
+        this.engineManufacturedDate = new Date();
         this.engineMake = "Generic";
         this.engineModel = "Generic";
-//        this.engineDriveTrain = "Generic";
         this.engineCylinders = 0;
-        this.engineType = "85 AKI";
-        this.driveTrain = "2WD: Two-Wheel Drives";
+        this.engineType = "88 AKI";
+        this.driveTrain = "2WS: Two-Wheel Drive";
     }
 
-    public ManufacturedEngine(String engineManufacturer, Date engineManufacturedDate, String engineMake, String engineModel, String engineDriveTrain, int engineCylinders, String engineType, String driveTrain) {
+    public Vehicle(String engineManufacturer, Date engineManufacturedDate, String engineMake, String engineModel, int engineCylinders, String engineType, String driveTrain) {
         this.engineManufacturer = engineManufacturer;
         this.engineManufacturedDate = engineManufacturedDate;
         this.engineMake = engineMake;
         this.engineModel = engineModel;
-        this.engineDriveTrain = engineDriveTrain;
         this.engineCylinders = engineCylinders;
         this.engineType = engineType;
         this.driveTrain = driveTrain;
@@ -79,29 +73,32 @@ public class ManufacturedEngine implements Engine {
         this.engineType = fuel;
     }
 
-    @Override
+
+
+
     public String toString() {
-        return "Engine Manufacturer : " + engineManufacturer +
-                "\nEngine Manufactured : " + engineManufacturedDate.toString() +
-                "\nEngine Make : " + engineMake +
-                "\nEngine Model : " + engineModel +
-                "\nEngine Type : " + engineType +
-                "\nEngine Cylinders : " + engineCylinders +
-                "\nDrive Train : " + engineDriveTrain +
-                "\nVehicle Frame : Unibody";
+        return "Manufacturer Name : " + engineManufacturer + "\n" +
+                "Manufactured Date : " + engineManufacturedDate.toString() + "\n" +
+                "Vehicle Make : " + engineMake + "\n" +
+                "Vehicle Model : " + engineModel + "\n" +
+                "Vehicle Type : None\n" +
+                "Engine Manufacturer : " + engineManufacturer + "\n" +
+                "Engine Manufactured : " + engineManufacturedDate.toString() + "\n" +
+                "Engine Make : " + engineMake + "\n" +
+                "Engine Model : " + engineModel + "\n" +
+                "Engine Type : " + engineType + "\n" +
+                "Engine Cylinders : " + engineCylinders + "\n" +
+                "Drive Train : " + driveTrain;
     }
 
     public static void main(String[] args) {
-        // Test scenario 1 - generic values
-        ManufacturedEngine engine1 = new ManufacturedEngine();
-        System.out.println(engine1.toString());
+        Vehicle genericVehicle = new Vehicle();
+        System.out.println(genericVehicle.toString());
 
-        // Test scenario 2 - custom values
-        Date date = new Date(2012, 0, 3, 7, 13, 19);
-        ManufacturedEngine manufacturedEngine = new ManufacturedEngine("Honda",
-                date,
-                "H-Series", "H23A1", "", 4, "88 AKI", "2WD: Two-Wheel Drive");
-
-        System.out.println(manufacturedEngine);
+        Vehicle vehicle = new Vehicle("Honda", new Date(2012, 1, 3, 7, 13, 19), "Honda",
+                "H-Series", 4, "88 AKI", "2WD: Two-Wheel Drive");
+        System.out.println(vehicle);
     }
+
+
 }

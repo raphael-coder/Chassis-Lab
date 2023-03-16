@@ -15,7 +15,7 @@ public class VehicleChassis implements Chassis {
 
     @Override
     public VehicleChassis getChassisType() {
-        return this;
+        return new VehicleChassis(this.chassisName);
     }
 
     @Override
@@ -25,8 +25,14 @@ public class VehicleChassis implements Chassis {
 
     @Override
     public String toString() {
-        return "VehicleChassis {" + "\n" +
-                "Chassis Name :'" + chassisName + '\'' + "\n" +
-                '}';
+        return "Chassis Name: " + chassisName;
+    }
+
+    public static void main(String[] args) {
+        VehicleChassis defaultChassis = new VehicleChassis();
+        System.out.println(defaultChassis);
+
+        VehicleChassis customChassis = new VehicleChassis("Sport");
+        System.out.println(customChassis);
     }
 }
